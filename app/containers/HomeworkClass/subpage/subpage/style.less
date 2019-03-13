@@ -1,0 +1,123 @@
+.history-homework-list{
+    min-height: 772px;
+    .title{
+        margin-bottom: 16px;
+        color: rgba(119, 119, 119, 1);
+        font-size: 16px;
+    }
+    .history-homework-sec{
+        width: 100%;
+        height: 102px;
+        margin-bottom:20px; 
+        padding: 8px 24px 8px 16px;
+        border-radius: 6px;
+        background-color: rgba(246, 248, 250, 1);
+        .mark-box{
+            float: left;
+            height: 100%;
+            .class-mark{
+                display: block;
+                width: 88px;
+                height: 23.78px;
+                text-align: center;
+                line-height: 23.78px;
+                color: rgba(255, 255, 255, 1);
+                font-size: 14px;
+                border-radius: 68px;
+                background-color: rgba(255, 133, 72, 1);
+            }
+            .homework-mark{
+                height: 22px;
+                margin:10px 8px 4px 0px;
+                line-height: 22px;
+                font-weight: 600;
+                color: rgba(51, 51, 51, 1);
+                font-size: 16px;
+            }
+            .homeworknum-mark{
+                height: 20px;
+                line-height: 20px;
+                margin-right: 14px;
+                color: rgba(153, 153, 153, 1);
+                font-size: 14px;
+            }
+            .clock-logo{
+                display: inline-block;
+                width: 11.62px;
+                height: 11.62px;
+                border-radius: 50%;
+                margin:3px 2px 0px 15px;
+                background: url("../../../../static/img/clock.png") no-repeat;
+                background-size:100% 100%; 
+
+            }
+            .date{
+                margin-bottom:10px;
+                color: rgba(153, 153, 153, 1);
+                font-size: 12px;
+             }
+        }
+        .progress-circle-mark-box{
+            float: right;
+             padding-top:10px; 
+             text-align: center;
+             .progress-circle-bar{
+                /* width: 48px;
+                height: 48px; */
+                margin-bottom: 4px;
+                cursor: pointer;
+            }
+            .progress-circle-text{
+                text-align: center;
+                color: rgba(45, 187, 85, 1);
+                font-size: 12px;
+            }
+            .progress-nopublish-text{
+                text-align: center;
+                color: #999;
+                font-size: 12px;
+            }
+            .correct-process-circle{
+                .ant-progress-circle-path{
+                    stroke: rgba(255, 133, 72, 1);
+                }
+                .ant-progress-text{
+                    color: rgba(255, 133, 72, 1);
+                }
+            }
+            .correct-process-circle.ant-progress-circle .ant-progress-text:after{
+                content: '';
+                display: block;
+                width: 42px;
+                font-size:14px;
+                -webkit-transform:scale(0.8);
+                color: rgba(255, 133, 72, 1);
+            }
+            .nosubmit-process-circle{
+                .ant-progress-circle-path{
+                    stroke: rgba(240, 239, 244, 1);
+                }
+                .ant-progress-text{
+                    color: rgba(0, 0, 0, 0.65);
+                }
+            }
+            .nosubmit-process-circle.ant-progress-circle .ant-progress-text:after{
+                content: '';
+                display: block;
+                width: 42px;
+                font-size:14px;
+                -webkit-transform:scale(0.8);
+                color:rgba(240, 239, 244, 1);
+            }
+        }
+        .homeworinfo-mark{
+            width: 226px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .ant-progress-circle-path{
+            stroke: rgba(45, 187, 85, 1);
+        }
+    }
+}

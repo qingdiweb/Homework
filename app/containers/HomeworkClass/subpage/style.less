@@ -1,0 +1,359 @@
+.homework-class-detail{
+    .share-btn{
+        width: 160px;
+        height: 36px;
+        font-size: 16px;
+        border-radius: 2px;
+        background-color: rgba(45, 187, 85, 1);
+        color: rgba(255, 255, 255, 1);
+        .logo{
+            float: left;
+            width: 16px;
+            height: 100%;
+            padding-top: 5px;
+            margin-right: 8px;
+            line-height: 100%;
+            font-size: 22px;
+        }
+        .text{
+            float: left;
+            margin-left: 8px;
+            height: 100%;
+            line-height: 32px;
+        }
+    }
+    .class-detail-title{
+        margin: 16px 0px 8px 0px;
+        color: rgba(119, 119, 119, 1);
+        font-size: 16px;
+        .instructions-text{
+            margin-left: 10px;
+            color: rgba(255, 133, 72, 1);
+            font-size: 14px;
+        }
+    }
+    .class-detail-text{
+        width: 100%;
+        height: 52px;
+        padding: 15px 16px; 
+        background-color: rgba(246, 248, 250, 1);
+        color: rgba(51, 51, 51, 1);
+        font-size: 16px;
+        .name{
+            float: left;
+        }
+        .number{
+            float: left;
+            margin-left: 106px;
+        }
+        .handle{
+            float: right;
+            font-size: 16px;
+            color: rgba(45, 187, 85, 1);
+            cursor: pointer;
+            span{
+                margin-left: 10px;
+            }
+        }
+    }
+    .no-corrections{
+        width: 100%;
+        height: 102px;
+        border-radius: 4px;
+        background-color: rgba(233, 248, 237, 1);
+    }
+    .corrections{
+        width: 100%;
+        height: 102px;
+        border-radius: 4px;
+        background-color: rgba(233, 248, 237, 1);
+    }
+    .topic-class-report{
+         position: relative;
+         min-height: 600px;
+        .ant-tabs-nav{
+            .ant-tabs-tab{
+                width: 160px;
+                text-align: center;
+                margin:0px 50px 0px 0px;
+                font-size: 18px;
+            }
+            .ant-tabs-tab:hover{
+                color:rgba(255, 133, 72, 1);
+            }
+            .ant-tabs-tab-active {
+                color:rgba(255, 133, 72, 1);
+                font-weight: 500;
+            }
+            .ant-tabs-ink-bar{
+                width: 160px !important;
+                background: rgba(255, 133, 72, 1);
+            }
+        }
+        .student-sec{
+            position: relative;
+            float: left;
+            width: 160px;
+            height: 72px;
+            margin:0px 16px 30px 0px;
+            padding: 16px;
+            border-radius: 2px;
+            background-color: rgba(255, 255, 255, 1);
+            border: 1px solid rgba(230, 234, 238, 1);
+            .del-box{
+                position: absolute;
+                right: 0px;
+                top:0px;
+                width: 20px;
+                height: 20px;
+                border-radius: 2px;
+                background-color: rgba(190, 190, 190, 1);
+            }
+            .del-box:hover{
+                background-color:#2dbb55;
+            }
+            .stu-del{
+                position: absolute;
+                left:50%;
+                top: 50%;
+                -webkit-transform: translate(-50%,-50%);
+                -ms-transform: translate(-50%,-50%);
+                -o-transform: translate(-50%,-50%);
+                color:#fff;
+                cursor: pointer;
+            }
+            .head-portrait{
+                float: left;
+                width: 40px;
+                height: 40px;
+                margin-left:10px;
+                border-radius: 50%;
+            }
+            .stu-name{
+                float: left;
+                margin-left: 12px;
+                max-width: 42px;
+                height: 100%;
+                line-height: 38px;
+                color: rgba(51, 51, 51, 1);
+                font-size: 14px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+        .list-sec{
+            padding: 8px 10px;
+            margin:20px 0px 44px;
+            position: relative;
+            .date{
+                position: absolute;
+                top:-22px;
+                left:0px;
+                color: rgba(153, 153, 153, 1);
+                font-size: 12px;
+             }
+            .mark-box{
+                float: left;
+                height: 100%;
+                .class-mark{
+                float: left;
+                width: 88px;
+                height: 52px;
+                margin:18px 10px;
+                padding: 16px 0px;
+                text-align: center;
+                color: rgba(255, 255, 255, 1);
+                font-size: 14px;
+                border-radius: 2px;
+                background-color: #FD9B6B;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .homework-name-time{
+                float: left;
+                width: 210px;
+                margin:18px 0px 0px 10px;
+                .homework-mark{
+                    height: 22px;
+                    margin:4px 8px 2px 0px;
+                    line-height: 22px;
+                    font-weight: 600;
+                    color: rgba(51, 51, 51, 1);
+                    font-size: 16px;
+                    .homework-name{
+                        float: left;
+                        width: 130px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                }
+                .homeworknum-mark{
+                    margin-right: 10px;
+                    color: rgba(153, 153, 153, 1);
+                    font-size: 12px;
+                }
+                .astime-tag{
+                    color: rgba(153, 153, 153, 1);
+                }
+                .alreadyAstime-tag{
+                    color: rgba(255, 65, 53, 1);;
+                }
+                .as-mark{
+                    margin:0px 2px 0px 0px;
+                    font-size: 12px;
+                }
+                .astimemonth-mark{
+                    font-size: 12px;
+                }
+            }
+                .progress-bar{
+                    width: 160px;
+                    border-radius: 8px;
+                    margin-bottom: 5px;
+                }
+                .progress-bar-txt{
+                    text-align: center;
+                    color: rgba(119, 119, 119, 1);
+                    font-size: 14px;
+                    .submitted{
+                        color: rgba(45, 187, 85, 1);
+                    }
+                }
+                .progress-circle-bar{
+                    width: 48px;
+                    height: 48px;
+                    margin-bottom: 4px;
+                }
+            }
+            .homeworinfo-mark{
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            .progress-mark-box{
+                margin:0px 100px 0px 70px;
+                padding-top:30px; 
+            }
+            .progress-circle-text{
+                text-align: center;
+                color: rgba(45, 187, 85, 1);
+                font-size: 12px;
+            }
+            .progress-circle-mark-box{
+                 padding-top:10px; 
+                 margin-right: 98px;
+                 text-align: center;
+            }
+            .correcting-mark-box{
+                float:right;
+                height: 86px;
+                line-height: 86px;
+                .correcting-btn{
+                    display: inline-block;
+                    margin-right:10px;
+                    margin-left: 46px;
+                    width: 86px;
+                    height: 36px;
+                 }
+                 p{
+                    text-align: center;
+                    .detail-btn{
+                        color: rgba(45, 187, 85, 1);
+                        font-size: 14px;
+                    }
+                    .del-btn{
+                        display: inline-block;
+                        width: 100px;
+                        margin-left: 46px;
+                        text-align: center;
+                        color: rgba(94, 94, 94, 1);
+                        font-size: 14px;
+                    }
+                 }
+                 .date{
+                    text-align: right;
+                    margin-bottom:13px;
+                    color: rgba(153, 153, 153, 1);
+                    font-size: 12px;
+                 }
+            }
+        }
+        .no-corrections{
+            width: 100%;
+            height: 102px;
+            border-radius: 4px;
+            background-color: rgba(233, 248, 237, 1);
+        }
+        .corrections{
+            width: 100%;
+            height: 102px;
+            border-radius: 4px;
+            background-color: rgba(233, 248, 237, 1);
+        }
+        .ant-progress-circle-path{
+            stroke: rgba(45, 187, 85, 1);
+        }
+
+    }
+
+}
+.share-info{
+    height: 22px;
+    margin:24px 0px;
+    line-height: 22px;
+    color: rgba(51, 51, 51, 1);
+    font-size: 16px;
+    text-align: center;
+}
+.share-path{
+    display: table;
+    content: '';
+    clear: both;
+    margin-bottom: 40px;
+    a{
+        float: left;
+        width: 50px;
+        height: 50px;
+        margin-left: 56px;
+        border-radius: 50px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .weinxin-share{
+        background: url('../../../static/img/weixin.png') no-repeat;
+        background-size:100% 100%; 
+    }
+    .weinxin-friend-share{
+        background: url('../../../static/img/weixin-friend.png') no-repeat;
+        background-size:100% 100%;
+    }
+    .qq-share{
+        background: url('../../../static/img/qq.png') no-repeat;
+        background-size:100% 100%;
+    }
+}
+/* <script type="text/javascript">
+(function(){
+var p = {
+url:location.href, 获取URL，可加上来自分享到QQ标识，方便统计
+desc:'', 分享理由(风格应模拟用户对话),支持多分享语随机展现（使用|分隔）
+title:'', 分享标题(可选)
+summary:'', 分享摘要(可选)
+pics:'', 分享图片(可选)
+flash: '', 视频地址(可选)
+site:'', 分享来源(可选) 如：QQ分享
+style:'201',
+width:32,
+height:32
+};
+var s = [];
+for(var i in p){
+s.push(i + '=' + encodeURIComponent(p[i]||''));
+}
+document.write(['<a class="qcShareQQDiv" href="http://connect.qq.com/widget/shareqq/index.html?',s.join('&'),'" target="_blank">分享到QQ</a>'].join(''));
+})();
+</script>
+<script src="http://connect.qq.com/widget/loader/loader.js" widget="shareqq" charset="utf-8"></script> */

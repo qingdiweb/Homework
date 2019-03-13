@@ -1,0 +1,337 @@
+.classroom-record-topic-detail{
+    width: 100%;
+    background-color: #fff;
+    .topic-sec{
+        float: left;
+        width: 100%;
+        margin-bottom: 16px;
+        border: 1px solid rgba(223, 226, 229, 1);
+        .topic-sec-head{
+            width: calc(~"100% + 32px");
+            padding: 0px 16px;
+            margin-left: -16px;
+            height: 44px;
+            margin-bottom: 0px;
+            line-height: 44px;
+            font-size: 14px;
+            color: rgba(51, 51, 51, 1);
+            border-top: 1px solid rgba(223, 226, 229, 1);
+            p{
+                float: left;
+                margin: 0px;
+            }
+            .show-parse{
+                float: left;
+                margin-right: 28px;
+                cursor: pointer;
+                .ant-radio-checked .ant-radio-inner {
+                    border-color: rgba(226, 231, 238, 1);
+                }
+
+            }
+            .collect{
+                float: left;
+                margin-right: 0px;
+            }
+            .default-sel{
+                background: url("../../static/img/collect-sel.png") no-repeat;
+            }
+            .sel-btn{
+                float: right;
+                position: relative;
+                font-weight: normal;
+                cursor: pointer;
+                .ant-checkbox-inner{
+                    border: 1px solid rgba(45, 187, 85, 1);
+                }
+                .ant-checkbox-checked .ant-checkbox-inner, .ant-checkbox-indeterminate .ant-checkbox-inner {
+                    background-color: rgba(45, 187, 85, 1);
+                }
+                .ant-checkbox-inner{
+                    width:30px !important;
+                    height: 30px !important;
+                }
+                .ant-checkbox-inner:after{
+                    left: 9.571429px;
+                    top: 1.14285714px;
+                    width: 11.714286px;
+                    height: 19.142857px;
+                }
+             }  
+        }
+        .topic-sec-cont{
+            padding: 16px 16px 0px 16px;
+            .title{
+                margin-right: 16px;
+                font-weight: 600;
+            }
+            h1{
+                font-size: 14px;
+                color: rgba(51, 51, 51, 1);
+            }
+            .topic-type{
+                margin:0px 10px 0px 4px;
+                color: rgba(255, 133, 72, 1);
+            }
+            .option-cont{
+                clear: both;
+                display: table;
+                content:'';
+                color: rgba(51, 51, 51, 1);
+                position: relative;
+                p{
+                    /* overflow: auto; */
+                    margin-top: 24px;
+                    .option{
+                        width: 12px;
+                        float: left;
+                        margin-right: 20px;
+                    }
+                    .option-cont-html{
+                        float: left;
+                        width: calc(~"100% - 32px");
+                        p{
+                            margin-top: 0px;
+                            margin-bottom: 0px;
+                        }
+                    }
+                }
+                .child-option-cont{
+                    p{
+                        clear: both;
+                        display: table;
+                        content:''; 
+                    }
+                    
+                }
+                .parent-option-cont{
+                    p{
+                       clear: both;
+                        display: table;
+                        content:''; 
+                    }
+                    
+                }
+                .cont-title{
+                    width: 100%;
+                    display: table;
+                    clear: both;
+                    content:'';
+                }
+            }
+            .degree{
+                display: inline-block;
+                margin-right: 20px;
+                padding: 1px 11px;
+                color: rgba(255, 255, 255, 1);
+                font-size: 12px;
+                background-color: rgba(255, 133, 72, 1);
+                border-radius:4px;
+            }
+            .exam-site{
+                margin-right: 24px;
+                color: rgba(45, 187, 85, 1);
+                font-size: 12px;
+
+            }
+            .exam-site-line{
+                border-radius: 4px;
+                border: 0.5px solid rgba(219, 219, 219, 1);
+            }
+             
+        }
+        .parse-cont{
+            width: calc(~"100% + 32px");
+            margin-left: -16px;
+            padding: 16px;
+            color: rgba(51, 51, 51, 1);
+            border-top: 1px dashed #dfe2e5;
+            p{
+                margin-bottom: 20px;
+            }
+            
+            .text{
+                display: inline-block;
+                width: calc(~"100% - 45px");
+                vertical-align: top;
+            }
+        
+        }
+    }
+    .answer-detail{
+        float: left;
+        width: 100%;
+        .answer-detail-sec{
+            float: left;
+            width: 615px;
+            .student-sec{
+                position: relative;
+                float: left;
+                width: 186px;
+                height: 88px;
+                margin:0px 32px 30px 0px;
+                padding: 16px 8px;
+                border-radius: 2px;
+                background-color: rgba(255, 255, 255, 1);
+                border: 1px solid rgba(230, 234, 238, 1);
+                .look-btn{
+                    z-index: 100;
+                    position: absolute;
+                    right: 0px;
+                    top:0px;
+                    width: 38px;
+                    height: 20px;
+                    font-size: 14px;
+                    text-align: center;
+                    line-height: 20px;
+                    border-radius: 2px;
+                    color:#fff;
+                    background-color: rgba(45, 187, 85, 1);
+                    cursor: pointer;
+                }
+                .head-portrait{
+                    float: left;
+                    width: 56px;
+                    height: 56px;
+                    border-radius: 50%;
+                }
+                .stu-name-state{
+                    float: left;
+                    margin-left: 12px;
+                    max-width: 60px;
+                    font-size: 14px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    .stu-name{
+                        display: block;
+                        max-width: 60px;
+                        height: 18px;
+                        font-size: 15px;
+                        margin:6px 0px;
+                        font-weight: 600;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                    .stu-finish-state{
+                        display: block;
+                        width: 60px;
+                        font-size: 14px;
+                         color: rgba(45, 187, 85, 1);
+                    }
+                    .stu-nocommit-state{
+                        display: block;
+                        width: 60px;
+                        height: 20px;
+                        line-height: 20px;
+                        font-size: 14px;
+                        color: rgba(255, 65, 53, 1);
+                        text-align: right;
+                        background: url('../../static/img/nocommit.png') center left no-repeat;
+                        background-size:14px 14px;
+                    }
+                }
+            }
+            .option-sec{
+                width: 100%;
+                margin-bottom: 30px;
+                clear: both;
+                display: table;
+                content: '';
+                .option-progress{
+                    width: 100%;
+                    .option-title{
+                        float: left;
+                        margin-right: 20px;
+                    }
+                    .stu-progress{
+                        float: left;
+                        width: 80%;
+                        margin-right: 30px;
+                    }
+                    .stu-num{
+                        float: left;
+                        .drop-down-arrow{
+                            margin-left: 10px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .option-student{
+                    position:relative;
+                    float: left;
+                    width: 91%;
+                    height: 50px;
+                    margin: 20px 0px 0px 30px;
+                    padding:12px 18px;
+                    background-color: rgba(249, 249, 249, 1);
+                    border: 1px solid rgba(220, 220, 220, 1);
+                    span{
+                        float: left;
+                        margin:0px 20px 10px 0px;
+                    }
+                    .san_shang{
+                      position:absolute;
+                      top:-12px;
+                      right: 15px;
+                      width: 20px;
+                      height: 12px;
+                      background: url('../../static/img/triangle.png') center center no-repeat;
+                      background-size:100% 100%;
+                  } 
+                }
+            }
+            .student-sec:nth-child(5n){
+                margin:0px 0px 30px 0px;
+            }
+        }
+        .sub-answer-detail-sec{
+            width: 100%;
+        }
+    }
+    .answer-modal-box{
+        width: 100%;
+        height: 800px;
+        overflow-y: scroll;
+    }
+}
+
+.stuAnswerModal.ant-modal{
+    width: 800px !important;
+}
+.stuAnswerModal{
+    .answer-modal-box{
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+        img{
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+    .answer-modal-box-scroll{
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+        overflow-y: scroll;
+        overflow-x:hidden;
+        .answer-box{
+            img{
+                display: block;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+        .answer-box-border{
+            border-bottom:10px solid #F9F9F9;
+            img{
+                display: block;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+        
+    }
+}

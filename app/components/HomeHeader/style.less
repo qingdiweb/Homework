@@ -1,0 +1,111 @@
+#home-header {
+    position: relative;
+    left: 0px;
+    top:0px;
+    width: 100%;
+    height: 58px;
+    background-color: rgba(45, 187, 85, 1);
+
+    .teacher-name{
+        width: 114px;
+        height: 20px;
+        margin:0px 20px 0px 40px;
+        line-height: 20px;
+        color: rgba(196, 195, 195, 1);
+        font-size: 14px;
+        text-align: left;
+    }
+    .exit-btn{
+        position: relative;
+        z-index: 1000;
+        color: rgba(45, 187, 85, 1);
+        font-size: 14px;
+    }
+    .auto-box{
+        position: relative;
+        width:1100px;
+        height: 100%;
+        margin:0 auto;
+        .header-menu.ant-menu{
+            //width:840px;
+            border: 0px;
+            background-color: rgba(45, 187, 85, 1);
+            .ant-menu-item{
+                width:138px;
+                height: 58px;
+                text-align: center;
+                line-height: 58px;
+                /* a{
+                    color: rgba(255, 255, 255, 1);
+                    font-size: 18px;
+                } */
+                color: rgba(255, 255, 255, 1);
+                font-size: 18px;
+            }
+            .ant-menu-item-disabled{
+                color: rgba(255, 255, 255, 1) !important;
+                cursor: pointer;
+                background: none;
+                border-color: transparent !important;
+            }
+            .ant-menu-item:hover{
+                background-color: rgba(0, 0, 0, 0.1);
+            };
+             .ant-menu-item-selected{
+                background-color: rgba(0, 0, 0, 0.1);
+            } 
+        }
+        .personal-info{
+            position: absolute;
+            top:12px;
+            right: 0px;
+            vertical-align: middle;
+            .head-portrait{
+                display: inline-block;
+                width:36px;
+                height: 36px;
+                border-radius:50%;
+            }
+            .user-name{
+                display: inline-block;
+                max-width: 56px;
+                margin:0px 8px 0px 12px;
+                color:rgba(255, 255, 255, 1);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                vertical-align: middle;
+            }
+
+        }
+        .exit{
+            z-index: 1000;
+            position: absolute;
+            top:58px;
+            right: 0px;
+            width: 124px;
+            height: 38px;
+            padding: 1px 0px 9px 36px;
+            line-height: 36px;
+            color: rgba(45, 187, 85, 1);
+            font-size: 14px;
+            border-radius:0px 0px 4px 4px;
+            box-shadow: 0px 2px 4px 0px rgba(236, 236, 236, 0.5);
+            background: url(../../static/img/exit.png) 14px center no-repeat #C0EBCC;
+            background-size:14px 16px; 
+        }
+       /*  .exit:hover{
+           color: rgba(45, 187, 85, 1);
+           background-color: rgba(45, 187, 85, 0.3);
+           cursor: pointer;
+           transition: background .5s linear;
+       }; */
+    }
+    .ant-menu-horizontal > .ant-menu-item-selected{
+        border-bottom:0px;
+    }
+    .ant-menu-horizontal > .ant-menu-item{
+        border-bottom:0px;
+    }
+}
+

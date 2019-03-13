@@ -1,0 +1,39 @@
+.indexHeadSearch{
+    height: 36px;
+        margin-bottom: 16px;
+        @indexSearchHeight:36px;
+        .decorateBtn{
+            width: 120px;
+            height: @indexSearchHeight;
+        }
+        .correctingSel{
+            width: 200px;
+            height: @indexSearchHeight;
+            float: left;
+            margin-right: 23px;
+            .ant-select-selection--single{
+                width: 100%;
+                height: 100%;
+            }
+            .ant-select-selection__placeholder, .ant-select-search__field__placeholder{
+                top:55%;
+            }
+        }
+        .datepickSel{
+            width: 200px;
+            height: @indexSearchHeight;
+            float: right;
+            margin-right: 16px;
+        }
+        .searchBtn{
+            float: right;
+            width: 86px;
+            height: @indexSearchHeight;
+            margin-right: 16px;
+        }
+        .resetBtn{
+            float: right;
+            width: 86px;
+            height: @indexSearchHeight;
+        }
+    }

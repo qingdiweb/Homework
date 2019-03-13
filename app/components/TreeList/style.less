@@ -1,0 +1,110 @@
+.ant-tree li .ant-tree-node-content-wrapper.ant-tree-node-selected {
+    color: rgba(45, 187, 85, 1);
+    background:none;
+}
+.ant-tree li .ant-tree-node-content-wrapper:hover{
+    background:none;
+}
+/* .tree-content{
+	max-width: 140px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+} */
+ .ant-tree-title{
+	max-width: 170px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	
+} 
+.switch-material{
+	display: inline-block;
+	width: 100%;
+	padding: 10px 10px 0px 10px;
+	text-align: right;
+	color:#2DBB55;
+	display: table;
+	clear: both;
+	content:'';
+	cursor: pointer;
+	b{
+		float: right;
+		width: 14px;
+		height: 14px;
+		margin:4px 5px 0px 0px; 
+		background: url('../../static/img/switch-material.png') no-repeat;
+		background-size: 100% 100%;
+	}
+	span{
+		float: right;
+	}
+}
+.swich-materia-modal{
+	.ant-modal-body{
+		padding: 24px 0px;
+	}
+	.material-sel{
+		width: 420px;
+		height: 300px;
+		display: flex;
+		padding-left: 10px;
+		.left-sec{
+			flex:.8;
+			overflow-y: scroll;
+			span{
+				display: block;
+				text-align: center;
+				width: 100%;
+				margin-bottom: 5px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				cursor: pointer;
+			}
+			.modalversionSel{
+				color:#2dbb55;
+			}
+
+		}
+		.right-sec{
+			flex: 2;
+			overflow-y: scroll;
+			.ant-radio-wrapper{
+				padding-left: 20px;
+				margin:0px 0px 20px 0px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			.ant-radio-wrapper:nth-child(2n){
+				margin:0px 0px 20px 0px;
+			}
+		}
+	}
+}
+.swich-coachbook-modal{
+	.ant-modal-body{
+		padding: 24px 0px;
+	}
+	.coachbook-sel{
+		width: 420px;
+		padding-left: 30px;
+		//margin-left:40px;
+		.coachbook-modal-name{
+			float: left;
+			width: 100%;
+			margin:0px 0px 10px 0px;
+		}
+		.ant-radio-wrapper{
+			margin:0px 0px 20px 0px;
+			min-width:185px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		.ant-radio-wrapper:nth-child(2n){
+			margin:0px 0px 20px 0px;
+		}
+	}
+}
