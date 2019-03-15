@@ -11,11 +11,7 @@ import { getTeacherInfo } from '../../fetch/home/home'
 import * as Constants from '../../constants/store'
 
 
-<<<<<<< Updated upstream
 // localStorage.setItem("loginToken",'a315888ff3051032cf94ed8650ce207a');
-=======
-//localStorage.setItem("loginToken",'90ef005b3bffde46c56fe98a72a376d3');
->>>>>>> Stashed changes
 //localStorage.setItem("loginToken",'cf83d280904999ce01e8c1cef889789d');
 
 const loginToken=localStorage.getItem("loginToken");
