@@ -4,7 +4,7 @@ import { Link, hashHistory } from 'react-router'
 import { fromJS } from 'immutable';
 import { DraggableArea, DraggableAreasGroup} from 'react-draggable-tags';
 import { Radio , Checkbox , Select , Icon , Input , Modal , Row , Col,Spin,message} from 'antd';
-import { getTopicListData , getDefaultQuestionList , collectSearchList , addorcancelCollect , addProblem,getProjectList,getRecommendList,findQuestion,saveDefault,updateExercise} from '../../fetch/decorate-homework/decorate-homework'
+import { getTopicListData ,delectCollectQuestion, getDefaultQuestionList , collectSearchList , addorcancelCollect , addProblem,getProjectList,getRecommendList,findQuestion,saveDefault,updateExercise} from '../../fetch/decorate-homework/decorate-homework'
 import { getCollectTopic} from '../../fetch/homework-collect/homework-collect'
 import Pagination from '../../Components/Pagination';
 import DelModal from '../../Components/DelModal';
@@ -87,7 +87,7 @@ class DecorateList extends React.Component {
                     this.setState({
                         currentPage:1//每次刷新数据页数默认第一页
                     })
-                } 
+                }
                 //拖拽右侧预览框里面的题顺序，通知子组件题目列表同时改变顺序
                 if(nextProps.noticeTopicNumData.length!=0){
                     this.setState({
@@ -118,9 +118,9 @@ class DecorateList extends React.Component {
             if(nextProps.flag!=this.props.flag){
                 //通知是否应该全选
                 console.log('通知专题')
-                this.noticeIsAllCheck.bind(this)() 
+                this.noticeIsAllCheck.bind(this)()
             }
-                
+
         }*/
     }
     componentDidMount(){
@@ -300,7 +300,7 @@ class DecorateList extends React.Component {
                                 topicList:topicListData,
                                 loadingShow:'none'
                             },()=>{
-                                this.noticeIsAllCheck.bind(this)(); 
+                                this.noticeIsAllCheck.bind(this)();
                                 window.MathJax.Hub.Queue(["Typeset",window.MathJax.Hub,"output"]);
                             })
                     }
@@ -334,7 +334,7 @@ class DecorateList extends React.Component {
                                 loadingShow:'none'
                             },()=>{
                                 this.noticeIsAllCheck.bind(this)();
-                                window.MathJax.Hub.Queue(["Typeset",window.MathJax.Hub,"output"]); 
+                                window.MathJax.Hub.Queue(["Typeset",window.MathJax.Hub,"output"]);
                             })
                     }
                 }).catch(ex => {
@@ -349,7 +349,7 @@ class DecorateList extends React.Component {
         const resultSaveDefault=saveDefault(loginToken,draftId,currentQuestionIds,currentCatalogIds,questionCount);
                    resultSaveDefault.then(res => {
                       return res.json()
-                  }).then(json => { 
+                  }).then(json => {
                       // 处理获取的数据
                       const data = json
                       this.setState({
@@ -382,7 +382,7 @@ class DecorateList extends React.Component {
                   visible: false,
                 });
                 if (data.result) {
-                    
+
                 }else{
                     message.warning(data.error);
                 }
@@ -428,7 +428,7 @@ class DecorateList extends React.Component {
                                                             {
                                                                 degreeData ='难';
                                                             }
-                                                           
+
                                                             //根据不同跳转入口来定义展示什么视图
                                                             if(this.props.parentType==0||this.props.parentType==3){
                                                                 showSec=<Checkbox  style={{'display':this.state.isCheck}} checked={this.props.noticeDecorateQuestionIds.match(item.id) ? true : false} dataId={tag.id} dataIndex={index} onChange={this.onChange.bind(this)}></Checkbox>
@@ -465,8 +465,8 @@ class DecorateList extends React.Component {
                                                                                         }
                                                                                     </p> : ''
                                                                                 }
-                                                                             </div>  
-                                                                            
+                                                                             </div>
+
                                                                         </div>
                                                                         <h1 className="topic-sec-head">
                                                                             <p className="show-parse" data-check={tag.topicIndex-1} data-showType={tag.isShow} onClick={this.showParse.bind(this)}>
@@ -506,7 +506,7 @@ class DecorateList extends React.Component {
                                                                                     }
                                                                                 </p> : ''
                                                                             }
-                                                                            
+
                                                                         </div>
                                                                     </div>
                                                             </div>
@@ -520,7 +520,7 @@ class DecorateList extends React.Component {
                                                             this.setState({
                                                                 topicList:tags,
                                                             },()=>{
-                                                                 this.props.noticeTopicNum.bind(this,tags,tags.length,this.state.draftSelData.objectiveNum,this.state.draftSelData.subjectiveNum)() 
+                                                                 this.props.noticeTopicNum.bind(this,tags,tags.length,this.state.draftSelData.objectiveNum,this.state.draftSelData.subjectiveNum)()
                                                             })
                                                             //处理题目顺序
                                                             window.noticeDecorateQuestionIds=currentQuestionIds.substring(0,currentQuestionIds.length-1);
@@ -596,7 +596,7 @@ class DecorateList extends React.Component {
                                                                                         </p> : ''
                                                                                     }
                                                                                 </div>
-                                                                                
+
                                                                             </div>
                                                                             <h1 className="topic-sec-head">
                                                                                 <p className="show-parse" data-check={index} data-showType={item.isShow} onClick={this.showParse.bind(this)}>
@@ -639,7 +639,7 @@ class DecorateList extends React.Component {
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                            })  
+                                                            })
                     }
                     </div>
                     : <div style={{'fontSize':'16px','textAlign':'center','margin':'300px auto',"display":this.state.loadingShow=='block' ? 'none' : 'block'}}><Icon type="exclamation-circle" style={{marginRight:'5px',color:'rgba(255, 159, 0, 1)'}}/>暂无数据~</div>
@@ -648,7 +648,7 @@ class DecorateList extends React.Component {
                 {
                     this.state.loadingShow=='block' ? '' : <Pagination currentPage={this.state.currentPage} topicListLen={this.state.topicListLen} paginationSel={this.paginationSel.bind(this)}/>
                 }
-                
+
                 <Modal
                   title="收藏试题"
                   visible={this.state.collectVisible}
@@ -667,8 +667,8 @@ class DecorateList extends React.Component {
                             mode="multiple"
                             placeholder="请选择习题集"
                             key={this.state.timeStamp}
-                            defaultValue={this.state.defaultCollectProblemData} 
-                            style={{ width: '244px' ,marginTop:'-10px'}} 
+                            defaultValue={this.state.defaultCollectProblemData}
+                            style={{ width: '244px' ,marginTop:'-10px'}}
                             onChange={this.collectSel.bind(this)}>
                             {
                                 this.state.collectList.map((item,index)=>{
@@ -679,20 +679,20 @@ class DecorateList extends React.Component {
                     </Col>
                     <Icon type="down" style={{position: 'absolute',top:'6px',right: '42px'}}/>
                   </Row>
-                  <Row gutter={8} style={{marginTop:'20px'}}> 
+                  <Row gutter={8} style={{marginTop:'20px'}}>
                     <Col span={16} offset={2}>
                         <span style={{color: 'rgba(45, 187, 85, 1)',fontSize: '14px',cursor:'pointer'}} onClick={this.addColletBtn.bind(this)}>+添加习题集</span>
                     </Col>
                   </Row>
                   {
-                    this.state.isAddcollectShow==true ? <Row gutter={8} style={{marginTop:'20px'}}> 
+                    this.state.isAddcollectShow==true ? <Row gutter={8} style={{marginTop:'20px'}}>
                                                             <Col span={5} offset={2}>
                                                                 <span>题集名称</span>
                                                             </Col>
                                                         </Row> : ''
                   }
                   {
-                    this.state.isAddcollectShow==true ? <Row gutter={8} style={{marginTop:'20px'}}> 
+                    this.state.isAddcollectShow==true ? <Row gutter={8} style={{marginTop:'20px'}}>
                                                             <Col span={16} offset={2}>
                                                                 <Input placeholder="请输入习题集名称" onChange={this.collectInput.bind(this)}/>
                                                             </Col>
@@ -731,12 +731,12 @@ class DecorateList extends React.Component {
                 //通知是否应该全选
                 this.noticeIsAllCheck.bind(this)()
             }
-            
+
     }
     //通知是否应该全选
     noticeIsAllCheck(){
             if(window.noticeDecorateQuestionIds!=''){
-                console.log('谁-列表',this.state.topicList)    
+                console.log('谁-列表',this.state.topicList)
                 for (var i = 0; i < this.state.topicList.length; i++) {
                     let item=this.state.topicList[i];
                      if(!window.noticeDecorateQuestionIds.match(item.id)){
@@ -901,14 +901,14 @@ class DecorateList extends React.Component {
                                         flag:!this.state.flag
                                     })
                                 }
-                    }    
+                    }
                 }).catch(ex => {
                     // 发生错误
                     if (__DEV__) {
                         console.error('暂无数据, ', ex.message)
                     }
                 })
-        
+
     }
     //保存收藏update
     collectUpdate(loginToken,collectIds,questionId){
@@ -940,7 +940,7 @@ class DecorateList extends React.Component {
                             }
                             this.setState({
                                 collectVisible:false
-                            })    
+                            })
                         }).catch(ex => {
                             // 发生错误
                             if (__DEV__) {
@@ -948,7 +948,7 @@ class DecorateList extends React.Component {
                                 console.error('暂无数据, ', ex.message)
                             }
                         })
-                
+
         })
 
     }
@@ -978,44 +978,57 @@ class DecorateList extends React.Component {
     }
     //取消收藏
     cancelCollectSure(){
-        this.collectUpdate.bind(this,loginToken,'',this.state.collectQustionId)().then(()=>{
-            //习题集调用的时候处理
-            if(this.props.parentType==2){
-                let collectId=!!this.props.collectId ? this.props.collectId : '',
-                    degree=this.props.fileData.degreeValue,
-                    categoryId=this.props.fileData.categoryValue,
-                    keyword=this.props.fileData.keywordValue,
-                    pageNumber=0,//第一页
-                    pageSize=5;//一页数据数
+        const resultAddorcancelCollect = delectCollectQuestion(loginToken,this.props.collectId,this.state.collectQustionId);
+        resultAddorcancelCollect.then(res => {
+            return res.json()
+        }).then(json => {
+            // 处理获取的数据
+            const data = json
+            if (data.result) {
+                message.success('已取消收藏');
+                if(this.props.parentType==2){
+                    let collectId=!!this.props.collectId ? this.props.collectId : '',
+                        degree=this.props.fileData.degreeValue,
+                        categoryId=this.props.fileData.categoryValue,
+                        keyword=this.props.fileData.keywordValue,
+                        pageNumber=0,//第一页
+                        pageSize=5;//一页数据数
                     this.getCollectTopic.bind(this,loginToken,collectId,degree,categoryId,keyword,pageNumber,pageSize)();
-               }
-        }).catch((ex)=>{
-            console.log("暂无数据 "+ex.message)
+                }
+            }
+        }).catch(ex => {
+            // 发生错误
+            if (__DEV__) {
+                reject(ex.message)
+                console.error('暂无数据, ', ex.message)
+            }
         })
         this.setState({
             cancelCollectVisible:false
-        }) 
+        })
     }
     cancelCollectCancel(){
         this.setState({
             cancelCollectVisible:false
-        }) 
+        })
     }
     //选择收藏习题集
     collectSel(value){
         console.log('删除习题集')
       let collectList=this.state.collectList,
+          defaultCollectProblemData=[],
           valueId=[];
           for (var i = 0; i < collectList.length; i++) {
               for (var j = 0; j < value.length; j++) {
                   if(collectList[i].name==value[j]){
-                        valueId.push(collectList[i].id)
+                        valueId.push(collectList[i].id);
+                      defaultCollectProblemData.push(collectList[i].name);
                    }
               }
-              
+
           }
           this.state.collectProblemData=valueId.toString();
-         
+          this.state.defaultCollectProblemData=defaultCollectProblemData;
     }
     //输入习题集名称
     collectInput(e){
@@ -1050,7 +1063,7 @@ class DecorateList extends React.Component {
                                 timeStamp:(new Date()).getTime(),
                                 flag:!this.state.flag
                             })
-                    }    
+                    }
                 }).catch(ex => {
                     // 发生错误
                     if (__DEV__) {
@@ -1070,7 +1083,7 @@ class DecorateList extends React.Component {
         let collectIds=this.state.collectProblemData,
             questionId=this.state.collectQustionId;
             this.collectUpdate.bind(this,loginToken,collectIds,questionId)();
-            
+
     }
     //取消收藏
     collectHandleCancel(){

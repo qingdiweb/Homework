@@ -105,7 +105,7 @@ class TreeList extends React.Component {
                 }).then(json => {
                     // 处理获取的数据
                     const data = json
-                    if (data.result) {
+                    if (data.result && this.props.type == 1) {
                         let catalogList=data.data,
                             gData=this.dealrenderTreeNodes(catalogList,'catalogInfoList'),
                             extParam=data.extParam;
@@ -127,15 +127,15 @@ class TreeList extends React.Component {
                                                 defaultSelectedKeys:[textbookPop],
                                                 treeLoading:false,
                                                 timeStamp:(new Date()).getTime()
-                                            }) 
+                                            })
                                             //全局存储当前章节名字
                                             let catalogNames=Constants.recursiveName(catalogList,'catalogInfoList',textbookPop);
                                                 window.catalogNames=catalogNames
-                                                
+
 
                                     }).catch((ex)=>{
                                         console.log("暂无数据 "+ex.message)
-                                    }) 
+                                    })
                                 }else{//弹窗选择教材
                                     this.props.noticeTree.bind(this,1,gData[0].id)();
                                     this.setState({
@@ -150,7 +150,7 @@ class TreeList extends React.Component {
                             }else{
                                 this.props.noticeTree.bind(this,1,'')();
                             }
-                            
+
 
                     }
                 }).catch(ex => {
@@ -173,7 +173,7 @@ class TreeList extends React.Component {
                }).then(json => {
                    // 处理获取的数据
                    const data = json
-                   if (data.result) {
+                  if (data.result && this.props.type == 5) {
                         let coachbookCollection=data.data,
                             coachbookInfoList=Constants.isFormat(coachbookCollection,Array) ? coachbookCollection[versionIndex].list[index].coachbookInfoList : [],
                             gData=[],
@@ -222,7 +222,7 @@ class TreeList extends React.Component {
                                                 window.catalogNames=catalogNames
                                     }).catch((ex)=>{
                                         console.log("暂无数据 "+ex.message)
-                                    }) 
+                                    })
                                 }
                             }else{
                                 this.props.noticeTree.bind(this,5,'')();
@@ -236,9 +236,9 @@ class TreeList extends React.Component {
                    if (__DEV__) {
                        console.error('暂无数据, ', ex.message)
                    }
-               })  
+               })
     }
-    
+
     //获取知识点信息
     getKnowledgeListData(stageId,subjectId,extParam){
         this.state.extParam=extParam;
@@ -252,7 +252,7 @@ class TreeList extends React.Component {
             }).then(json => {
                 // 处理获取的数据
                 const data = json
-                if (data.result) {
+                if (data.result && this.props.type == 2) {
                     let knowledgeInfoList=data.data.knowledgeInfoList,
                         gData=[],
                         expandedKeys=[],
@@ -279,8 +279,8 @@ class TreeList extends React.Component {
                                 treeLoading:false
                             })
                         }
-                        
-                    
+
+
                 }
             }).catch(ex => {
                 // 发生错误
@@ -302,7 +302,7 @@ class TreeList extends React.Component {
             }).then(json => {
                 // 处理获取的数据
                 const data = json
-                if (data.result) {
+                if (data.result && this.props.type == 4) {
                     let paperInfoList=data.data.content,
                         gData=[],
                         expandedKeys=[],
@@ -315,7 +315,8 @@ class TreeList extends React.Component {
                         }
                         //必须满足有试卷的情况下
                         if(Constants.isFormat(paperInfoList,Array)){
-                            if(extParam==this.state.extParam){
+                            if(extParam==this.state.extParam)
+                             {
                                 this.setState({
                                     paperInfoList:gData.length!=0 ? gData : [],
                                     gData:gData.length!=0 ? gData : [],
@@ -334,7 +335,7 @@ class TreeList extends React.Component {
                                 treeLoading:false
                             })
                         }
-                        
+
                 }
             }).catch(ex => {
                 // 发生错误
@@ -356,7 +357,7 @@ class TreeList extends React.Component {
             }).then(json => {
                 // 处理获取的数据
                 const data = json
-                if (data.result) {
+                if (data.result && this.props.type == 3) {
                     let collectInfoList=data.data,
                         gData=[],
                         expandedKeys=[],
@@ -388,8 +389,8 @@ class TreeList extends React.Component {
                                 treeLoading:false
                             })
                         }
-                        
-                    
+
+
                 }
             }).catch(ex => {
                 // 发生错误
@@ -413,17 +414,17 @@ class TreeList extends React.Component {
                                 lastOperation:lastOperation
                             })
                             resolve(lastOperation)
-                         }   
+                         }
                     }).catch(ex => {
                         // 发生错误
                         if (__DEV__) {
                             reject("暂无数据 "+ex.message)
                         }
-                    }) 
+                    })
         })
-           
+
     }
-    
+
     //调出弹窗
     switchMaterial(){
         let teacherInfo=JSON.parse(localStorage.getItem("teacherInfo")),//教师信息
@@ -435,7 +436,7 @@ class TreeList extends React.Component {
                 if(this.props.type==1){//教材
                     let myEvent = new Event('click'),
                         versiontag=document.getElementById('left-sec').getElementsByTagName('span');
-                        //找到当前版本和教材高亮     
+                        //找到当前版本和教材高亮
                         this.getLastOperation.bind(this,loginToken)().then((data)=>{
                             let lastOperation=data,
                                 lastTextbookId=Constants.isFormat(lastOperation.textbook,String) ? (stageId!=lastOperation.textbook.lastStageId||subjectId!=lastOperation.textbook.lastSubjectId) ? this.state.catalogList[0].textbookId : lastOperation.textbook.lastTextbookId : this.state.catalogList[0].textbookId;
@@ -453,8 +454,8 @@ class TreeList extends React.Component {
                                 })
                         }).catch((ex)=>{
                             console.log("暂无数据 "+ex.message)
-                        })                
-                        
+                        })
+
                 }else{//教辅
                     this.setState({
                         materialSelVal:this.state.gData.length!=0 ? this.state.gData[0].title : ''
@@ -469,7 +470,7 @@ class TreeList extends React.Component {
             siblingsNode=[...self.parentNode.children].filter((child)=>child!==self),
             textbookInfoList=this.state.versionInfoList.find((e)=>e.editionId==editionId).textbookInfoList;
             self.classList.add('modalversionSel');
-            for (let value of siblingsNode) { 
+            for (let value of siblingsNode) {
                 value.classList.remove('modalversionSel');
             }
             this.setState({
@@ -585,8 +586,8 @@ class TreeList extends React.Component {
                                     this.state.textbookInfoList.length!=0&&!this.state.textbookLoading ? <RadioGroup options={this.state.textbookInfoList} value={this.state.materialSelVal}  onChange={this.materialSel.bind(this)} /> : !this.state.textbookLoading&&<div style={{textAlign:'center',clear:'both',marginBottom:'10px'}}>
                                     <Icon type="exclamation-circle" style={{margin:'100px auto',display:'block',color:'rgba(255, 159, 0, 1)'}}/>该版本下暂无教材</div>
                                 }
-                            </div>    
-                            
+                            </div>
+
                       </div> : <div className='coachbook-sel'>
                             {
                              this.props.type==5&&<span className='coachbook-modal-name'>{Object.keys(this.state.coachbookCollection)!=0 ? this.state.coachbookCollection.name : ''}</span>
@@ -598,11 +599,11 @@ class TreeList extends React.Component {
                       </div>
                     }
                 </div>
-                  
+
                 </Modal>
 
             </div>
-          
+
         );
     }
     onSelect(id,info){

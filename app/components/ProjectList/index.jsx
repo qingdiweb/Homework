@@ -27,7 +27,7 @@ class ProjectList extends React.Component {
 
     }
     componentWillMount(){
-        
+
     }
     componentDidMount(){
         console.log('专题类型props初始化',this.props.projectType)
@@ -59,13 +59,13 @@ class ProjectList extends React.Component {
             if(tagType==5){
                 //调取推荐试题列表数据
                 console.log('pageSize',pageSize)
-                this.decorate.getRecommendList(loginToken,catalogId,excludeIds,pageNumber,pageSize) 
+                this.decorate.getRecommendList(loginToken,catalogId,excludeIds,pageNumber,pageSize)
             }else{
                //调取专题列表数据
-                this.decorate.getProjectList(loginToken,catalogId,tagType,pageNumber,pageSize) 
+                this.decorate.getProjectList(loginToken,catalogId,tagType,pageNumber,pageSize)
             }
     }
-   
+
     render() {
         console.log('接收全选-专题列表',this.props.specialInfoList)
         return (
@@ -101,20 +101,21 @@ class ProjectList extends React.Component {
                     <div className='allsel-change-box'>
                         <Checkbox className='allSelected'  checked={this.state.checkAll} onChange={this.allSelected.bind(this)}>全选</Checkbox>
                         {
-                            this.props.projectType==5&&<a href="javascript:;" className='change-group' onClick={this.changeGroup.bind(this)}>换一组</a>
+                            // this.props.projectType==5&&<a href="javascript:;" className='change-group' onClick={this.changeGroup.bind(this)}>换一组</a>
+                            <a href="javascript:;" className='change-group' onClick={this.changeGroup.bind(this)}>换一组</a>
                         }
                     </div>
-                   
+
                 </div>
                 <div id="decorate-list" className="clear-fix">
-                    <DecorateList 
+                    <DecorateList
                         ref={(decorate)=>{this.decorate=decorate}}
-                        flag={this.state.flag} 
-                        checkAll={this.state.checkAll} 
-                        parentType={this.state.parentType} 
+                        flag={this.state.flag}
+                        checkAll={this.state.checkAll}
+                        parentType={this.state.parentType}
                         viewSel={this.viewSel.bind(this)}
                         noticeDecorateQuestionIds={window.noticeDecorateQuestionIds}
-                        noticeCheckall={this.noticeCheckall.bind(this)} 
+                        noticeCheckall={this.noticeCheckall.bind(this)}
                         />
                 </div>
             </div>
@@ -130,10 +131,10 @@ class ProjectList extends React.Component {
             pageSize=20;//一页数据数
             if(tagType==5){
                 //调取推荐试题列表数据
-                this.decorate.getRecommendList(loginToken,catalogId,excludeIds,pageNumber,pageSize) 
+                this.decorate.getRecommendList(loginToken,catalogId,excludeIds,pageNumber,pageSize)
             }else{
                //调取专题列表数据
-                this.decorate.getProjectList(loginToken,catalogId,tagType,pageNumber,pageSize) 
+                this.decorate.getProjectList(loginToken,catalogId,tagType,pageNumber,pageSize)
             }
 
     }

@@ -193,6 +193,15 @@ export function  addorcancelCollect(loginToken,collectIds,questionId) {
     })
     return result
 }
+//删除习题集下的题目
+export function  delectCollectQuestion(loginToken,collectId,questionId) {
+    const result = post('/account/teacher/collect/question/delete', {
+        loginToken:loginToken,
+        collectId:collectId,
+        questionId:questionId
+    })
+    return result
+}
 //添加班级
 export function  addClass(loginToken,name) {
     const result = post('/account/teacher/class/add', {
@@ -200,7 +209,7 @@ export function  addClass(loginToken,name) {
         name:name
     })
     return result
-}  
+}
 //获取试卷筛选条件数据
 export function getPaperSearchCondition(stageId,subjectId) {
     const result = post('/config/paper-search',{
@@ -265,7 +274,7 @@ export function saveExercise(loginToken,draftId,classIds,name,catalogIds,questio
         questionCount:questionCount
     })
     return result
-}    
+}
 //更新测验
 export function updateExercise(loginToken,quizId,catalogIds,questionIds,choiceCatalogId,questionCount) {
     const result = post('/account/teacher/quiz/update',{
@@ -277,5 +286,5 @@ export function updateExercise(loginToken,quizId,catalogIds,questionIds,choiceCa
         questionCount:questionCount
     })
     return result
-}    
+}
 
