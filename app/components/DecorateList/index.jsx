@@ -844,10 +844,10 @@ class DecorateList extends React.Component {
                     //删除之后更新作业题目
                     this.updateDefault.bind(this,loginToken,draftId,window.noticeDecorateQuestionIds,window.catalogIds,questionCount)()
                 }
-                setTimeout(()=>{
-                    //通知查看已选父组件-有多少道题目是否为空
-                    this.props.noticeTopicNum.bind(this,this.state.topicList,this.state.topicList.length,this.state.draftSelData.objectiveNum,this.state.draftSelData.subjectiveNum)()
-                },500)
+                // setTimeout(()=>{
+                //     //通知查看已选父组件-有多少道题目是否为空
+                //     this.props.noticeTopicNum.bind(this,this.state.topicList,this.state.topicList.length,this.state.draftSelData.objectiveNum,this.state.draftSelData.subjectiveNum)()
+                // },500)
             }else{//当前只有一道题也删除
                 //如果isSelected为3说明是练习已选调用此组件，练习没有草稿概念所以不用更新草稿
                 if(this.props.isSelected==3){

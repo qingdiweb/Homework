@@ -8,6 +8,7 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 // console.log(process.env.NODE_ENV)
 
 module.exports = {
+    devtool:'eval-source-map',
     entry: path.resolve(__dirname, 'app/index.jsx'),
     output: {
         path: __dirname + "/build",
