@@ -3,7 +3,8 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { Link, hashHistory } from 'react-router'
 import { fromJS } from 'immutable';
 import { DraggableArea, DraggableAreasGroup} from 'react-draggable-tags';
-import { Radio , Checkbox , Select , Icon , Input , Modal , Row , Col,Spin,message} from 'antd';
+import { Radio , Checkbox , Select , Icon , Input , Modal , Row , Col,Spin,message,LocaleProvider} from 'antd';
+import zhCN from 'antd/lib/locale-provider/zh_CN';
 import { getTopicListData ,delectCollectQuestion, getDefaultQuestionList , collectSearchList , addorcancelCollect , addProblem,getProjectList,getRecommendList,findQuestion,saveDefault,updateExercise} from '../../fetch/decorate-homework/decorate-homework'
 import { getCollectTopic} from '../../fetch/homework-collect/homework-collect'
 import Pagination from '../../Components/Pagination';
@@ -46,7 +47,8 @@ class DecorateList extends React.Component {
             currentPage:1,
             extParam:0,//扩展参数-用来防止连续调取接口，上一个接口返回慢导致数据不准确问题
             recordId:'',//记录当前拖拽的id
-            recordIndex:''//记录当前拖拽的id下标
+            recordIndex:'',//记录当前拖拽的id下标
+            requestLoading:false,//记录请求加载中
         }
 
     }
@@ -646,7 +648,9 @@ class DecorateList extends React.Component {
                 }
                 <DelModal isShowModal={this.state.isShowDelModal} parentType={this.state.parentType} draftId={this.props.draftId} topicId={this.state.topicId} noticeHomework={this.noticeHomework.bind(this)}/>
                 {
-                    this.state.loadingShow=='block' ? '' : <Pagination currentPage={this.state.currentPage} topicListLen={this.state.topicListLen} paginationSel={this.paginationSel.bind(this)}/>
+                    this.state.loadingShow=='block' ? '' :<LocaleProvider locale={zhCN}>
+                        <Pagination currentPage={this.state.currentPage} topicListLen={this.state.topicListLen} paginationSel={this.paginationSel.bind(this)}/>
+                    </LocaleProvider>
                 }
 
                 <Modal
@@ -1045,26 +1049,34 @@ class DecorateList extends React.Component {
 
     //添加习题集-保存
     saveCollectBtn(){
+        if(this.state.requestLoading === true)
+        {
+            message.warn('请求中,请稍后');
+            return;
+        }
+        this.state.requestLoading = true;
         let name=this.state.newProblemName;//新习题集名字
         const resultAddProblem = addProblem(loginToken,name);
                 resultAddProblem.then(res => {
                     return res.json()
                 }).then(json => {
+                    this.state.requestLoading = false;
                     // 处理获取的数据
                     const data = json
                     if (data.result) {
                         //添加成功之后重新渲染一下收藏习题集列表
                         let collectQustionId=this.state.collectQustionId;
-                            this.getCollectList.bind(this,collectQustionId,0)();
-                            this.setState({
-                                collectProblemData:`${this.state.collectProblemData},${data.data.id}`.replace(/(^\,*)|(\,*$)/g, ""),
-                                defaultCollectProblemData:[...this.state.defaultCollectProblemData,name],
-                                isAddcollectShow:false,
-                                timeStamp:(new Date()).getTime(),
-                                flag:!this.state.flag
-                            })
+                        this.getCollectList.bind(this,collectQustionId,0)();
+                        this.setState({
+                            collectProblemData:`${this.state.collectProblemData},${data.data.id}`.replace(/(^\,*)|(\,*$)/g, ""),
+                            defaultCollectProblemData:[...this.state.defaultCollectProblemData,name],
+                            isAddcollectShow:false,
+                            timeStamp:(new Date()).getTime(),
+                            flag:!this.state.flag
+                        })
                     }
                 }).catch(ex => {
+                    this.state.requestLoading = false;
                     // 发生错误
                     if (__DEV__) {
                         console.error('暂无数据, ', ex.message)
