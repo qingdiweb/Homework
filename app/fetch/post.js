@@ -16,7 +16,7 @@ function obj2params(obj) {
 }
 // 发送 post 请求
 export function post(url, paramsObj) {
-    var host= baseUrl;
+    var host= baseUrl;//
     var result = fetch(host+url, {
         method: 'POST',
         credentials: 'include',
@@ -31,7 +31,7 @@ export function post(url, paramsObj) {
 }
 // 共同私有操作发送 post 请求
 export function commonpost(url, paramsObj) {
-    var host= baseUrl;
+    var host= baseUrl;//
     var result = fetch(host+url, {
         method: 'POST',
         credentials: 'include',//是为了向后台传输数据时带上cookie
