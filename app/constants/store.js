@@ -2,17 +2,17 @@ export const STORE_UPDATE = 'STORE_UPDATE';
 export const STORE_ADD = 'STORE_ADD';
 export const STORE_RM = 'STORE_RM';
 //清空前后空格
-export const Trim=(str)=>{ 
-  return str.replace(/(^\s*)|(\s*$)/g, ""); 
+export const Trim=(str)=>{
+  return str.replace(/(^\s*)|(\s*$)/g, "");
 }
 //判断是否为null和''
-export const whetherTure = (value)=>{ 
+export const whetherTure = (value)=>{
 	if(value!==null&&value!==''){
 		return true;
 	}else{
 		return false;
 	}
-  
+
 }
 //处理时间戳转化时间日期格式
 export const dealTimestamp = (dateAt)=>{
@@ -67,7 +67,7 @@ export const dealQuestion = (data,questionInfo)=>{
 			    data.questionInfo.knowledges=data.questionInfo.knowledges==null||data.questionInfo.knowledges==''  ? [] : data.questionInfo.knowledges.split(',');//处理考点
 			    data.questionInfo.isShow='none';//初始化不显示解析
     	}
-    	
+
     }
     return data
 }
@@ -124,9 +124,9 @@ export const recursiveName = (datavalue,childvalue,id)=>{
     	}else{
     		if(item[childvalue]){
     			if(recursiveName(item[childvalue],childvalue,id)!=''){
-    				name=recursiveName(item[childvalue],childvalue,id) 
+    				name=recursiveName(item[childvalue],childvalue,id)
     			}else{
-    				recursiveName(item[childvalue],childvalue,id) 
+    				recursiveName(item[childvalue],childvalue,id)
     			}
 	    	}
     	}
@@ -135,8 +135,9 @@ export const recursiveName = (datavalue,childvalue,id)=>{
 }
 
 //测试地址和正式地址
-export const isTest = true;
+export const isTest = false;
 export const baseUrl = isTest ? 'https://test.huazilive.com/api/tiku' : 'https://api.huazilive.com/api/tiku';
+export const serviceBaseUrl = isTest ? 'https://test.huazilive.com/api/service' : 'https://api.huazilive.com/api/service';
 //录题访问地址
 export const lutiUrl = isTest ? 'https://test.huazilive.com/LutiAdmin' : 'https://www.huazilive.com/luti';
 //j教师录题访问地址

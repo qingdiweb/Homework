@@ -72,8 +72,9 @@ class DecorateHomework extends React.Component {
     }
     componentWillMount(){
         //从查看已选页面继续添加过来呈现原来题目
-        let stageId=this.props.teacherInfo.stageId,
-            subjectId=this.props.teacherInfo.subjectId,
+        let teacherInfo=JSON.parse(localStorage.getItem("teacherInfo")),//教师信息
+            stageId=teacherInfo.stageId,//学段
+            subjectId=teacherInfo.subjectId,//学科
             draftId=this.props.params.draftId,// 为空是主页或menu跳转过来的 不为空是查看已选跳转过来的
             draftSelNum=this.props.params.draftSelNum,
             fromwhere=this.props.params.fromwhere;//0 布置过来的 1 布置-查看已选-布置过来的 2 草稿-查看已选-布置过来的 3 测验-查看已选-布置过来的 4 再次编辑-查看已选-布置过来的

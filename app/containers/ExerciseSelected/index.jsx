@@ -50,7 +50,7 @@ class ExerciseSel extends React.Component {
     }
     componentWillMount(){
       //通知左侧menu导航-当前在那个menu下
-      localStorage.setItem('positionMenu',JSON.stringify(['1']));
+      // localStorage.setItem('positionMenu',JSON.stringify(['1']));
       //获取测验下版本，教材 章节
       let exerciseId=this.props.params.exerciseId,
           pageNumber=-1,//第一页
