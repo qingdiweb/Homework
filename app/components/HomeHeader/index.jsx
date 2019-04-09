@@ -131,6 +131,7 @@ class HomeHeader extends React.Component {
         this.setState({
             menukey:new Date().getTime()
         })
+        let originPath = this.state.stagPath;
         if(e.key=='0'){
             if(this.state.isAllowLeave){
                 hashHistory.push("/index-homework")
@@ -181,23 +182,36 @@ class HomeHeader extends React.Component {
 
         //离开布置作业界面提示
         if(this.state.isAllowLeave===false){
+            console.log('====1111');
             if(this.state.stagPath!="/decorate-homework"&&this.props.saveDraftData.topicSel!=0){//布置页面点击布置menu和题目数为0不提示
+                console.log('=====222');
                 this.setState({
                   leaveVisible: true,
                   dialogFlag:!this.state.dialogFlag
                 })
             }
+            else {
+                console.log('=====333');
+                if(originPath !==  this.state.stagPath){
+                    console.log('=====555');
+                    window.noticeDecorateQuestionIds='';//用作通知header组件离开当前页面保存草稿参数用
+                    window.catalogIds='';
+                }
+            }
         }else{
+            console.log('=====444');
             this.setState({
               leaveVisible: false,
               dialogFlag:!this.state.dialogFlag
             });
+            window.noticeDecorateQuestionIds='';//用作通知header组件离开当前页面保存草稿参数用
+            window.catalogIds='';
         }
        /* window.noticeDecorateQuestionIds='';//用作通知header组件离开当前页面保存草稿参数用
         window.catalogIds='';*/
-        
+
     }
-   
+
     personalInfoLeave(){
         setTimeout(()=>{
             if(!this.state.isEnterExit){

@@ -140,4 +140,4 @@ export const baseUrl = isTest ? 'https://test.huazilive.com/api/tiku' : 'https:/
 //录题访问地址
 export const lutiUrl = isTest ? 'https://test.huazilive.com/LutiAdmin' : 'https://www.huazilive.com/luti';
 //j教师录题访问地址
-export const teachLutiUrl = isTest ? 'https://test.huazilive.com/TeacherLuti/console.html#!/login/' : 'https://www.huazilive.com/TeacherLuti/console.html#!/login/';
+export const teachLutiUrl = isTest ? 'https://test.huazilive.com/TeacherLuti/console.html#!/login/' : 'https://www.huazilive.com/luti/teacher/console.html#!/login/';

@@ -409,8 +409,9 @@ class DecorateHomework extends React.Component {
     //教材同步 知识点 收藏 试卷点击
     callback(type){
         //教师信息
-        let stageId=this.props.teacherInfo.stageId,
-            subjectId=this.props.teacherInfo.subjectId,
+        let teacherInfo=JSON.parse(localStorage.getItem("teacherInfo")),//教师信息
+            stageId=teacherInfo.stageId,//学段
+            subjectId=teacherInfo.subjectId,//学科
             questionId=0,
             extParam=this.state.extParam+=1;
             if(type==1){
@@ -772,43 +773,55 @@ class DecorateHomework extends React.Component {
     //试卷筛选
     paperProvinceFilter(value){
         let provinceobj=this.copy.bind(this,this.state.paperSearchObj)();
-            provinceobj.province=value;
-            this.setState({
-                paperSearchObj:provinceobj
-            },()=>{
-                 let  extParam = this.state.extParam+=1;
-                 this.treeControl.getPaperInfoData(this.props.teacherInfo.stageId,this.props.teacherInfo.subjectId,value,'','','',extParam)
-            })
+        provinceobj.province=value;
+        this.setState({
+            paperSearchObj:provinceobj
+        },()=>{
+            let  extParam = this.state.extParam+=1,
+                teacherInfo=JSON.parse(localStorage.getItem("teacherInfo")),//教师信息
+                stageId=teacherInfo.stageId,//学段
+                subjectId=teacherInfo.subjectId;//学科
+            this.treeControl.getPaperInfoData(stageId,subjectId,value,'','','',extParam)
+        })
     }
     paperGradeFilter(value){
         let gradeobj=this.copy.bind(this,this.state.paperSearchObj)();
-            gradeobj.grade=value;
-           this.setState({
-                paperSearchObj:gradeobj
-            },()=>{
-               let  extParam = this.state.extParam+=1;
-               this.treeControl.getPaperInfoData(this.props.teacherInfo.stageId,this.props.teacherInfo.subjectId,'',value,'','',extParam)
-            })
+        gradeobj.grade=value;
+        this.setState({
+            paperSearchObj:gradeobj
+        },()=>{
+            let  extParam = this.state.extParam+=1,
+                teacherInfo=JSON.parse(localStorage.getItem("teacherInfo")),//教师信息
+                stageId=teacherInfo.stageId,//学段
+                subjectId=teacherInfo.subjectId;//学科
+            this.treeControl.getPaperInfoData(stageId,subjectId,'',value,'','',extParam)
+        })
     }
     paperYearFilter(value){
         let yearobj=this.copy.bind(this,this.state.paperSearchObj)();
-            yearobj.year=value;
-            this.setState({
-                paperSearchObj:yearobj
-            },()=>{
-                let  extParam = this.state.extParam+=1;
-                this.treeControl.getPaperInfoData(this.props.teacherInfo.stageId,this.props.teacherInfo.subjectId,'','',value,'',extParam)
-            })
+        yearobj.year=value;
+        this.setState({
+            paperSearchObj:yearobj
+        },()=>{
+            let  extParam = this.state.extParam+=1,
+                teacherInfo=JSON.parse(localStorage.getItem("teacherInfo")),//教师信息
+                stageId=teacherInfo.stageId,//学段
+                subjectId=teacherInfo.subjectId;//学科
+            this.treeControl.getPaperInfoData(stageId,subjectId,'','',value,'',extParam)
+        })
     }
     paperTypeFilter(value){
         let typeobj=this.copy.bind(this,this.state.paperSearchObj)();
-            typeobj.type=value;
-            this.setState({
-                paperSearchObj:typeobj
-            },()=>{
-                let  extParam = this.state.extParam+=1;
-                this.treeControl.getPaperInfoData(this.props.teacherInfo.stageId,this.props.teacherInfo.subjectId,'','','',value,extParam)
-            })
+        typeobj.type=value;
+        this.setState({
+            paperSearchObj:typeobj
+        },()=>{
+            let  extParam = this.state.extParam+=1,
+                teacherInfo=JSON.parse(localStorage.getItem("teacherInfo")),//教师信息
+                stageId=teacherInfo.stageId,//学段
+                subjectId=teacherInfo.subjectId;//学科
+            this.treeControl.getPaperInfoData(stageId,subjectId,'','','',value,extParam)
+        })
     }
     //专题
     doProject(e){
@@ -883,8 +896,9 @@ class DecorateHomework extends React.Component {
     //教辅选择
     coachbookSel(e){
         let dataIndex=e.currentTarget.getAttribute('data-index'),
-            stageId=this.props.teacherInfo.stageId,
-            subjectId=this.props.teacherInfo.subjectId,
+            teacherInfo=JSON.parse(localStorage.getItem("teacherInfo")),//教师信息
+            stageId=teacherInfo.stageId,//学段
+            subjectId=teacherInfo.subjectId,//学科
             versionIndex=this.state.versionIndex,
             currenNode=e.currentTarget,
             siblingsNode=[...e.currentTarget.parentNode.children].filter((child)=>child!==e.currentTarget),
