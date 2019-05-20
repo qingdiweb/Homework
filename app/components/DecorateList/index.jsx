@@ -828,10 +828,12 @@ class DecorateList extends React.Component {
         if(id===''){
             return;
         }
+        console.log('window.noticeDecorateQuestionIds=',window.noticeDecorateQuestionIds,'window.catalogIds',window.catalogIds);
+
         let draftId=this.props.draftId,//草稿id
             exerciseId=this.props.exerciseId,//练习id
             noticeDecorateQuestionIds=window.noticeDecorateQuestionIds.split(","),//题目
-            currentCatalogIds=window.catalogIds.split(","),//题目对应下章节
+            currentCatalogIds=window.catalogIds?window.catalogIds.split(","):[],//题目对应下章节
             choiceCatalogId=Constants.isHasCatalog(window.catalogIds) ? '' : Constants.isFormat(this.props.choiceData,undefined) ? this.props.choiceData.charAt(this.props.choiceData.length-1) : '',//检查所有章节是否全有为0
             questionCount=this.state.topicList.length;//章节ids
             noticeDecorateQuestionIds.splice(noticeDecorateQuestionIds.indexOf(id),1);

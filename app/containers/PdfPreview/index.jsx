@@ -8,7 +8,7 @@ import { Radio , Checkbox , Select , Icon , Input , Modal , Row , Col , Button,S
 import { getTopicListData , getDefaultQuestionList , collectSearchList , addorcancelCollect , addProblem,findQuestion} from '../../fetch/decorate-homework/decorate-homework'
 import Pagination from '../../Components/Pagination';
 import $ from  'jquery'
-//import html2canvas from 'html2canvas'
+import html2canvas from 'html2canvas'
 
 import './style.less'
 
@@ -47,7 +47,7 @@ class DecorateList extends React.Component {
 
     }
     componentDidMount(){
-      console.log('html2canvas',html2canvas)
+      console.log('html2canvas')
     }
     getDefaultQuestionList(loginToken,questionIds){
         this.setState({
@@ -100,6 +100,31 @@ class DecorateList extends React.Component {
         copyDom.height(targetDom.height() + "px");
 
         $('body').append(copyDom);//ps:这里一定要先把copyDom append到body下，然后再进行后续的glyphicons2canvas处理，不然会导致图标为空*/
+
+
+        var test = document.getElementById("preview-print");
+        html2canvas(test).then((canvas)=>{
+
+            console.log('canvas',canvas);
+            var imgData = canvas.toDataURL('image/jpeg');
+            var img = new Image();
+            img.src = imgData;
+            //根据图片的尺寸设置pdf的规格，要在图片加载成功时执行，之所以要*0.225是因为比例问题
+            img.onload = function () {
+                //此处需要注意，pdf横置和竖置两个属性，需要根据宽高的比例来调整，不然会出现显示不完全的问题
+                if (this.width > this.height) {
+                    var doc = new jsPDF('l', 'mm', [this.width * 0.225, this.height * 0.225]);
+                } else {
+                    var doc = new jsPDF('p', 'mm', [this.width * 0.225, this.height * 0.225]);
+                }
+                doc.addImage(imgData, 'jpeg', 0, 0, this.width * 0.225, this.height * 0.225);
+                //根据下载保存成不同的文件名
+                doc.save('欧拉作业');
+                //window.open('file:///C:/Users/Administrator/Downloads/pdf_'+ new Date().getTime() + '.pdf')
+            };
+
+        });
+        return;
           html2canvas($('#preview-print'), {
              /* onrendered:function(canvas) {
 
@@ -241,7 +266,7 @@ class DecorateList extends React.Component {
                                                                                             }
                                                                                           </p>*/
                                                                                         }
-                                                                                        
+
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -259,16 +284,16 @@ class DecorateList extends React.Component {
                       footer={[]}
                     >
                      <Input value={window.location.href} style={{width:'368px',height:'36px',marginRight:'12px'}}/>
-                     
+
                      <CopyToClipboard text={window.location.href} onCopy={this.onCopy.bind(this)}>
                          <Button type="primary">{this.state.copyText}</Button>
-                     </CopyToClipboard> 
+                     </CopyToClipboard>
                      <p className='share-prompt'>将链接通过QQ、微信等任何方式发给相关人等,即可查看试题</p>
                     </Modal>
                 </div>
         )
     }
- 
+
 }
 
 export default DecorateList
