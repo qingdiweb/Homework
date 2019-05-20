@@ -135,7 +135,7 @@ export const recursiveName = (datavalue,childvalue,id)=>{
 }
 
 //测试地址和正式地址
-export const isTest = false;
+export const isTest = true;
 export const baseUrl = isTest ? 'https://test.huazilive.com/api/tiku' : 'https://api.huazilive.com/api/tiku';
 export const serviceBaseUrl = isTest ? 'https://test.huazilive.com/api/service' : 'https://api.huazilive.com/api/service';
 //录题访问地址
